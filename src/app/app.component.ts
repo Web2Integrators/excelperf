@@ -21,6 +21,8 @@ export class AppComponent {
   createTable(data: any) {
 
     Excel.run(async (context) => {
+      this.inprogress = true;
+      this.message = 'rendering';
       const t0 = performance.now();
       let isError = false;
       await OfficeHelpers.ExcelUtilities.forceCreateSheet(context.workbook, 'DD-Quarterly Net All Fees');
